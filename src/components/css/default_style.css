@@ -1,0 +1,345 @@
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3e5ab; /* Cor de fundo principal */
+}
+
+/* Cabeçalho */
+.header {
+    background-color: #e8ca4d; /* Cor de fundo do cabeçalho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    position: relative;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #5a5a5a;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.header button.active {
+    color: #333; /* Cor do texto do botão ativo */
+}
+
+.header button.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #d4b23f; /* Cor da barra abaixo do botão ativo */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinhamento vertical no centro */
+    padding: 20px;
+    min-height: calc(100vh - 60px); /* Altura da tela menos a altura do cabeçalho */
+}
+
+/* Cartões */
+.card {
+    background-color: #f7e56b; /* Cor do fundo do cartão */
+    width: 400px; /* Largura fixa */
+    height: 600px;
+    max-width: 100%; /* Garantir que não ultrapasse o contêiner */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Raio das bordas */
+    padding: 20px;
+    margin: 10px; /* Espaçamento entre cartões */
+    overflow-y: auto; /* Permite rolagem vertical */
+    display: none; /* Esconder todos os cartões inicialmente */
+    transition: opacity 0.3s ease;
+}
+
+.card.active {
+    display: block; /* Mostrar apenas o cartão ativo */
+}
+
+/* Título do cartão */
+.card h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #7f7f7f; /* Cor do texto do título */
+    margin-top: 0;
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+/* Botão flutuante */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #d4b23f; /* Cor do botão flutuante */
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.floating-button:hover {
+    background-color: #d4b23f; /* Cor ao passar o mouse */
+}
+
+.floating-button:before {
+    content: '+';
+    font-size: 28px;
+    color: #fff;
+}
+
+/* Sobreposição do formulário */
+.form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container do formulário */
+.form-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Campos do formulário */
+.form-container form div {
+    margin-bottom: 20px;
+}
+
+.form-container form label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-container form input,
+.form-container form textarea {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-container form input:focus,
+.form-container form textarea:focus {
+    border-color: #007bff; /* Cor da borda ao focar */
+    outline: none;
+}
+
+/* Botões do formulário */
+.form-container form button {
+    padding: 12px 24px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Espaçamento entre os botões */
+}
+
+.form-container form button[type="submit"] {
+    background-color: #007bff; /* Cor de fundo do botão de enviar */
+}
+
+.form-container form button[type="button"] {
+    background-color: #ccc; /* Cor de fundo do botão de cancelar */
+    color: #333;
+    margin-right: 0; /* Remove a margem no botão de cancelar */
+}
+
+.form-container form button:hover[type="submit"] {
+    background-color: #0056b3; /* Cor do botão de enviar ao passar o mouse */
+}
+
+.form-container form button:hover[type="button"] {
+    background-color: #bbb; /* Cor do botão de cancelar ao passar o mouse */
+}
+
+
+/* Tarefas */
+.task {
+    border: 2px solid transparent; /* Borda padrão transparente */
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color 0.3s, background-color 0.3s;
+    margin-bottom: 10px; /* Espaçamento entre as tarefas */
+    background-color: #F4D35E; /* Fundo padrão das tarefas */
+}
+
+/* Tarefas concluídas */
+.task-completed {
+    border: 2px solid #4caf50; /* Borda verde para tarefas concluídas */
+    background-color: #e8f5e9; /* Cor de fundo mais clara */
+    color: #4caf50; /* Cor do texto para tarefas concluídas */
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+}
+
+/* Container do checkbox para estilização personalizada */
+.task-header input[type="checkbox"] {
+    appearance: none; /* Remove o estilo padrão */
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 2px solid #007bff;
+    background-color: #fff;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    margin-right: 15px;
+}
+
+/* Checkbox marcado */
+.task-header input[type="checkbox"]:checked {
+    background-color: #007bff; /* Cor de fundo quando marcado */
+    border-color: #007bff;
+}
+
+/* Símbolo de checkmark */
+.task-header input[type="checkbox"]:checked::after {
+    content: '';
+    display: block;
+    width: 14px; /* Ajustado para melhor visualização */
+    height: 14px; /* Ajustado para melhor visualização */
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%) rotate(45deg); /* Centraliza e rotaciona o símbolo */
+}
+
+.task-header button {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.task-header button:hover {
+    text-decoration: underline;
+}
+
+.task-name {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.task-name.completed {
+    text-decoration: line-through;
+    color: #4caf50; /* Cor do texto riscado para tarefas concluídas */
+}
+
+.task-details {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.task-date {
+    font-size: 12px;
+    color: #7f7f7f;
+}
+
+.task-desc {
+    font-size: 14px;
+    color: #333;
+}
+
+.task-overdue {
+    background-color: #f44336; /* Vermelho para tarefas atrasadas */
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px; /* Cantos arredondados */
+    border: 2px solid #f44336; /* Borda vermelha */
+}
+
+.task-near {
+    background-color: #ff9800; /* Laranja para tarefas próximas do prazo */
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px; /* Cantos arredondados */
+    border: 2px solid #ff9800; /* Borda laranja */
+}
+
+/* Botão de excluir */
+.delete-button {
+    background-color: #f44336; /* Cor de fundo vermelha */
+    color: #fff; /* Cor do texto/branco */
+    border: none;
+    border-radius: 4px; /* Cantos arredondados */
+    padding: 8px 16px; /* Espaçamento interno */
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button:hover {
+    background-color: #c62828; /* Cor de fundo ao passar o mouse */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.delete-button:active {
+    background-color: #b71c1c; /* Cor de fundo ao clicar */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button .icon {
+    margin-right: 8px; /* Espaço entre ícone e texto */
+    font-size: 18px; /* Tamanho do ícone */
+}
+
+
+

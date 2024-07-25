@@ -1,0 +1,343 @@
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    background-color: #f3e5ab; /* Define a cor de fundo principal */
+}
+
+/* Cabeçalho */
+.header {
+    background-color: #e8ca4d; /* Define a cor de fundo do cabeçalho */
+    display: flex; /* Define um layout flexível */
+    justify-content: center; /* Alinha itens ao centro horizontalmente */
+    align-items: center; /* Alinha itens ao centro verticalmente */
+    padding: 10px 0; /* Define o preenchimento superior e inferior */
+    position: relative; /* Define a posição relativa */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Define uma sombra ao redor do cabeçalho */
+}
+
+.header button {
+    background: none; /* Remove o fundo do botão */
+    border: none; /* Remove a borda do botão */
+    font-size: 18px; /* Define o tamanho da fonte */
+    color: #5a5a5a; /* Define a cor do texto */
+    padding: 10px 20px; /* Define o preenchimento interno */
+    cursor: pointer; /* Altera o cursor ao passar sobre o botão */
+    position: relative; /* Define a posição relativa */
+}
+
+.header button.active {
+    color: #333; /* Define a cor do texto do botão ativo */
+}
+
+.header button.active::after {
+    content: ''; /* Adiciona um conteúdo vazio */
+    display: block; /* Exibe o conteúdo como um bloco */
+    width: 100%; /* Define a largura total */
+    height: 4px; /* Define a altura da barra */
+    background-color: #d4b23f; /* Define a cor da barra abaixo do botão ativo */
+    position: absolute; /* Define a posição absoluta */
+    bottom: 0; /* Alinha a barra na parte inferior */
+    left: 0; /* Alinha a barra à esquerda */
+}
+
+/* Container principal */
+.container {
+    display: flex; /* Define um layout flexível */
+    justify-content: center; /* Alinha itens ao centro horizontalmente */
+    align-items: center; /* Alinha itens ao centro verticalmente */
+    padding: 20px; /* Define o preenchimento interno */
+    min-height: calc(100vh - 60px); /* Define a altura mínima como a altura da tela menos a altura do cabeçalho */
+}
+
+/* Cartões */
+.card {
+    background-color: #f7e56b; /* Define a cor de fundo do cartão */
+    width: 400px; /* Define a largura fixa */
+    height: 600px; /* Define a altura fixa */
+    max-width: 100%; /* Garante que o cartão não ultrapasse o contêiner */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Define uma sombra ao redor do cartão */
+    border-radius: 8px; /* Define o raio das bordas */
+    padding: 20px; /* Define o preenchimento interno */
+    margin: 10px; /* Define o espaçamento entre cartões */
+    overflow-y: auto; /* Permite rolagem vertical */
+    display: none; /* Esconde todos os cartões inicialmente */
+    transition: opacity 0.3s ease; /* Adiciona uma transição suave para a opacidade */
+}
+
+.card.active {
+    display: block; /* Mostra apenas o cartão ativo */
+}
+
+/* Título do cartão */
+.card h1 {
+    font-size: 24px; /* Define o tamanho da fonte */
+    text-align: center; /* Alinha o texto ao centro */
+    color: #7f7f7f; /* Define a cor do texto do título */
+    margin-top: 0; /* Remove a margem superior */
+    margin-bottom: 20px; /* Define o espaçamento abaixo do título */
+}
+
+/* Botão flutuante */
+.floating-button {
+    position: fixed; /* Define a posição fixa */
+    bottom: 20px; /* Alinha o botão 20px acima do fundo */
+    right: 20px; /* Alinha o botão 20px à direita */
+    background-color: #d4b23f; /* Define a cor de fundo do botão flutuante */
+    border: none; /* Remove a borda */
+    border-radius: 50%; /* Define bordas arredondadas */
+    width: 60px; /* Define a largura */
+    height: 60px; /* Define a altura */
+    display: flex; /* Define um layout flexível */
+    justify-content: center; /* Alinha itens ao centro horizontalmente */
+    align-items: center; /* Alinha itens ao centro verticalmente */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Define uma sombra ao redor do botão */
+    cursor: pointer; /* Altera o cursor ao passar sobre o botão */
+    transition: background-color 0.3s; /* Adiciona uma transição suave para a cor de fundo */
+}
+
+.floating-button:hover {
+    background-color: #d4b23f; /* Define a cor ao passar o mouse (a mesma cor) */
+}
+
+.floating-button:before {
+    content: '+'; /* Adiciona um símbolo de adição */
+    font-size: 28px; /* Define o tamanho da fonte */
+    color: #fff; /* Define a cor do texto/branco */
+}
+
+/* Sobreposição do formulário */
+.form-overlay {
+    position: fixed; /* Define a posição fixa */
+    top: 0; /* Alinha ao topo */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Define a largura total */
+    height: 100%; /* Define a altura total */
+    background: rgba(0, 0, 0, 0.5); /* Define uma sobreposição preta semitransparente */
+    display: flex; /* Define um layout flexível */
+    justify-content: center; /* Alinha itens ao centro horizontalmente */
+    align-items: center; /* Alinha itens ao centro verticalmente */
+}
+
+/* Container do formulário */
+.form-container {
+    background: #fff; /* Define a cor de fundo branca */
+    padding: 30px; /* Define o preenchimento interno */
+    border-radius: 8px; /* Define o raio das bordas */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Define uma sombra ao redor do formulário */
+    width: 90%; /* Define a largura de 90% */
+    max-width: 500px; /* Define a largura máxima */
+}
+
+.form-container h2 {
+    font-size: 24px; /* Define o tamanho da fonte */
+    color: #333; /* Define a cor do texto */
+    margin-top: 0; /* Remove a margem superior */
+    margin-bottom: 20px; /* Define o espaçamento abaixo do título */
+}
+
+/* Campos do formulário */
+.form-container form div {
+    margin-bottom: 20px; /* Define o espaçamento abaixo dos campos */
+}
+
+.form-container form label {
+    font-weight: 500; /* Define o peso da fonte */
+    color: #333; /* Define a cor do texto */
+    margin-bottom: 8px; /* Define o espaçamento abaixo do rótulo */
+    display: block; /* Exibe o rótulo como um bloco */
+}
+
+.form-container form input,
+.form-container form textarea {
+    width: 100%; /* Define a largura total */
+    padding: 12px; /* Define o preenchimento interno */
+    box-sizing: border-box; /* Inclui preenchimento e borda no tamanho total */
+    border: 1px solid #ddd; /* Define a borda */
+    border-radius: 4px; /* Define o raio das bordas */
+    font-size: 14px; /* Define o tamanho da fonte */
+    transition: border-color 0.3s; /* Adiciona uma transição suave para a cor da borda */
+}
+
+.form-container form input:focus,
+.form-container form textarea:focus {
+    border-color: #007bff; /* Define a cor da borda ao focar */
+    outline: none; /* Remove o contorno padrão */
+}
+
+/* Botões do formulário */
+.form-container form button {
+    padding: 12px 24px; /* Define o preenchimento interno */
+    border: none; /* Remove a borda */
+    color: #fff; /* Define a cor do texto/branco */
+    font-size: 16px; /* Define o tamanho da fonte */
+    cursor: pointer; /* Altera o cursor ao passar sobre o botão */
+    border-radius: 4px; /* Define o raio das bordas */
+    transition: background-color 0.3s; /* Adiciona uma transição suave para a cor de fundo */
+    margin-right: 10px; /* Define o espaçamento entre os botões */
+}
+
+.form-container form button[type="submit"] {
+    background-color: #007bff; /* Define a cor de fundo do botão de enviar */
+}
+
+.form-container form button[type="button"] {
+    background-color: #ccc; /* Define a cor de fundo do botão de cancelar */
+    color: #333; /* Define a cor do texto */
+    margin-right: 0; /* Remove a margem no botão de cancelar */
+}
+
+.form-container form button:hover[type="submit"] {
+    background-color: #0056b3; /* Define a cor do botão de enviar ao passar o mouse */
+}
+
+.form-container form button:hover[type="button"] {
+    background-color: #bbb; /* Define a cor do botão de cancelar ao passar o mouse */
+}
+
+/* Tarefas */
+.task {
+    border: 2px solid transparent; /* Define a borda padrão transparente */
+    border-radius: 8px; /* Define bordas arredondadas */
+    padding: 15px; /* Define o preenchimento interno */
+    display: flex; /* Define um layout flexível */
+    flex-direction: column; /* Define a direção do layout flexível como coluna */
+    position: relative; /* Define a posição relativa */
+    transition: border-color 0.3s, background-color 0.3s; /* Adiciona uma transição suave para a cor da borda e do fundo */
+    margin-bottom: 10px; /* Define o espaçamento entre as tarefas */
+    background-color: #F4D35E; /* Define a cor de fundo padrão das tarefas */
+}
+
+/* Tarefas concluídas */
+.task-completed {
+    border: 2px solid #4caf50; /* Define a borda verde para tarefas concluídas */
+    background-color: #e8f5e9; /* Define a cor de fundo mais clara */
+    color: #4caf50; /* Define a cor do texto para tarefas concluídas */
+}
+
+.task-header {
+    display: flex; /* Define um layout flexível */
+    align-items: center; /* Alinha itens ao centro verticalmente */
+}
+
+/* Container do checkbox para estilização personalizada */
+.task-header input[type="checkbox"] {
+    appearance: none; /* Remove o estilo padrão */
+    width: 24px; /* Define a largura */
+    height: 24px; /* Define a altura */
+    border-radius: 4px; /* Define bordas arredondadas */
+    border: 2px solid #007bff; /* Define a cor da borda */
+    background-color: #fff; /* Define a cor de fundo */
+    position: relative; /* Define a posição relativa */
+    cursor: pointer; /* Altera o cursor ao passar sobre o checkbox */
+    transition: background-color 0.3s, border-color 0.3s; /* Adiciona uma transição suave para a cor da borda e do fundo */
+    margin-right: 15px; /* Define o espaçamento à direita */
+}
+
+/* Checkbox marcado */
+.task-header input[type="checkbox"]:checked {
+    background-color: #007bff; /* Define a cor de fundo quando marcado */
+    border-color: #007bff; /* Define a cor da borda quando marcado */
+}
+
+/* Símbolo de checkmark */
+.task-header input[type="checkbox"]:checked::after {
+    content: ''; /* Adiciona um conteúdo vazio */
+    display: block; /* Exibe o conteúdo como um bloco */
+    width: 14px; /* Define a largura */
+    height: 14px; /* Define a altura */
+    border: solid white; /* Define a cor da borda */
+    border-width: 0 3px 3px 0; /* Define a largura da borda */
+    position: absolute; /* Define a posição absoluta */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%) rotate(45deg); /* Centraliza e rotaciona o símbolo */
+}
+
+.task-header button {
+    margin-left: auto; /* Define a margem à esquerda automática */
+    background: none; /* Remove o fundo */
+    border: none; /* Remove a borda */
+    color: #007bff; /* Define a cor do texto */
+    cursor: pointer; /* Altera o cursor ao passar sobre o botão */
+    font-size: 14px; /* Define o tamanho da fonte */
+}
+
+.task-header button:hover {
+    text-decoration: underline; /* Adiciona um sublinhado ao passar o mouse */
+}
+
+.task-name {
+    font-weight: 500; /* Define o peso da fonte */
+    font-size: 16px; /* Define o tamanho da fonte */
+}
+
+.task-name.completed {
+    text-decoration: line-through; /* Adiciona uma linha através do texto */
+    color: #4caf50; /* Define a cor do texto para tarefas concluídas */
+}
+
+.task-details {
+    margin-top: 10px; /* Define o espaçamento acima dos detalhes */
+    font-size: 14px; /* Define o tamanho da fonte */
+}
+
+.task-date {
+    font-size: 12px; /* Define o tamanho da fonte */
+    color: #7f7f7f; /* Define a cor do texto */
+}
+
+.task-desc {
+    font-size: 14px; /* Define o tamanho da fonte */
+    color: #333; /* Define a cor do texto */
+}
+
+/* Tarefas atrasadas */
+.task-overdue {
+    background-color: #f44336; /* Define a cor de fundo vermelha */
+    color: #fff; /* Define a cor do texto/branco */
+    padding: 10px; /* Define o preenchimento interno */
+    border-radius: 8px; /* Define bordas arredondadas */
+    border: 2px solid #f44336; /* Define a borda vermelha */
+}
+
+/* Tarefas próximas do prazo */
+.task-near {
+    background-color: #ff9800; /* Define a cor de fundo laranja */
+    color: #fff; /* Define a cor do texto/branco */
+    padding: 10px; /* Define o preenchimento interno */
+    border-radius: 8px; /* Define bordas arredondadas */
+    border: 2px solid #ff9800; /* Define a borda laranja */
+}
+
+/* Botão de excluir */
+.delete-button {
+    background-color: #f44336; /* Define a cor de fundo vermelha */
+    color: #fff; /* Define a cor do texto/branco */
+    border: none; /* Remove a borda */
+    border-radius: 4px; /* Define bordas arredondadas */
+    padding: 8px 16px; /* Define o preenchimento interno */
+    font-size: 14px; /* Define o tamanho da fonte */
+    cursor: pointer; /* Altera o cursor ao passar sobre o botão */
+    display: flex; /* Define um layout flexível */
+    align-items: center; /* Alinha itens ao centro verticalmente */
+    justify-content: center; /* Alinha itens ao centro horizontalmente */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Adiciona uma transição suave para a cor de fundo e sombra */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* Define uma sombra ao redor do botão */
+}
+
+.delete-button:hover {
+    background-color: #c62828; /* Define a cor de fundo ao passar o mouse */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Define uma sombra ao passar o mouse */
+}
+
+.delete-button:active {
+    background-color: #b71c1c; /* Define a cor de fundo ao clicar */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Define uma sombra ao clicar */
+}
+
+.delete-button .icon {
+    margin-right: 8px; /* Define o espaço entre ícone e texto */
+    font-size: 18px; /* Define o tamanho do ícone */
+}
